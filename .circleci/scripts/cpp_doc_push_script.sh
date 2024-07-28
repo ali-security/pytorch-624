@@ -53,7 +53,7 @@ set -ex
 
 # Generate ATen files
 pushd "${pt_checkout}"
-pip install -r requirements.txt
+pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' -r requirements.txt
 time python -m torchgen.gen \
   -s aten/src/ATen \
   -d build/aten/src/ATen
@@ -68,7 +68,7 @@ time python tools/setup_helpers/generate_code.py \
 
 # Build the docs
 pushd docs/cpp
-pip install -r requirements.txt
+pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' -r requirements.txt
 time make VERBOSE=1 html -j
 
 popd

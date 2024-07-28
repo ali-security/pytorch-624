@@ -16,9 +16,9 @@ _pip_install() {
         fi
     fi
     if [[ -n "$CI" ]]; then
-        time pip install "$@"
+        time pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' "$@"
     else
-        pip install "$@"
+        pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' "$@"
     fi
     if [[ -n "$CI" ]]; then
         if [[ -n "${SCCACHE_BUCKET}" ]]; then
@@ -33,6 +33,6 @@ _pip_install() {
 _pip_install -b "$BUILD_DIR/onnx" "file://$tp2_dir/onnx#egg=onnx"
 
 # Install caffe2 and pytorch
-pip install -r "$top_dir/caffe2/requirements.txt"
-pip install -r "$top_dir/requirements.txt"
+pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' -r "$top_dir/caffe2/requirements.txt"
+pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' -r "$top_dir/requirements.txt"
 python setup.py install

@@ -17,7 +17,7 @@ source "$(dirname "${BASH_SOURCE[0]}")/common-build.sh"
 # down mobile CI jobs.
 # Here we install nightly instead of stable so that we have an option to
 # temporarily skip mobile CI jobs on BC-breaking PRs until they are in nightly.
-retry pip install --pre torch torchvision \
+retry pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' --pre torch torchvision \
   -f https://download.pytorch.org/whl/nightly/cpu/torch_nightly.html \
   --progress-bar off
 

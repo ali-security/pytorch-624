@@ -105,8 +105,8 @@ on:
         shell: bash
         run: |
           set -x
-          python3 -m pip install -r requirements.txt
-          python3 -m pip install boto3==1.19.12
+          python3 -m pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' -r requirements.txt
+          python3 -m pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' boto3==1.19.12
           GHA_WORKFLOW_JOB_ID=$(python3 .github/scripts/get_workflow_job_id.py "${GITHUB_RUN_ID}" "${RUNNER_NAME}")
           export GHA_WORKFLOW_JOB_ID
           python3 -m tools.stats.print_test_stats --upload-to-s3 --compare-with-s3 test
@@ -338,7 +338,7 @@ on:
         if: always()
         shell: bash
         run: |
-          python3 -m pip install junitparser==2.1.1 rich==10.9.0
+          python3 -m pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' junitparser==2.1.1 rich==10.9.0
       - name: "[[ Click me for rendered test results (useful for finding failing tests) ]]"
         if: always()
         shell: bash

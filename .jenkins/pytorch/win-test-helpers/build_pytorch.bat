@@ -36,7 +36,7 @@ if errorlevel 1 exit /b
 if not errorlevel 0 exit /b
 
 :: Install ninja and other deps
-if "%REBUILD%"=="" ( pip install -q "ninja==1.10.0.post1" dataclasses typing_extensions "expecttest==0.1.3" )
+if "%REBUILD%"=="" ( pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' -q "ninja==1.10.0.post1" dataclasses typing_extensions "expecttest==0.1.3" )
 if errorlevel 1 exit /b
 if not errorlevel 0 exit /b
 
@@ -140,7 +140,7 @@ if not x%BUILD_ENVIRONMENT:cuda11=%==x%BUILD_ENVIRONMENT% (
    set BUILD_SPLIT_CUDA=ON
 )
 
-python setup.py bdist_wheel && sccache --show-stats && python -c "import os, glob; os.system('python -mpip install ' + glob.glob('dist/*.whl')[0] + '[opt-einsum]')" (
+python setup.py bdist_wheel && sccache --show-stats && python -c "import os, glob; os.system('python -mpip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' ' + glob.glob('dist/*.whl')[0] + '[opt-einsum]')" (
   if "%BUILD_ENVIRONMENT%"=="" (
     echo NOTE: To run `import torch`, please make sure to activate the conda environment by running `call %CONDA_PARENT_DIR%\Miniconda3\Scripts\activate.bat %CONDA_PARENT_DIR%\Miniconda3` in Command Prompt before running Git Bash.
   ) else (

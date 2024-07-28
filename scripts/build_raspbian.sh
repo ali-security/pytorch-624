@@ -26,7 +26,7 @@ sudo apt-get install \
   protobuf-compiler \
   python-protobuf
 # python dependencies
-sudo pip install hypothesis
+sudo pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' hypothesis
 
 # Now, actually build the raspbian target.
 echo "Building caffe2"

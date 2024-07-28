@@ -22,7 +22,7 @@ python setup.py develop
 
 # Install dependencies:
 # Scipy is required by detr
-pip install scipy
+pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' scipy
 
 # Run the benchmark for the base
 # This will use the GPU if available.
@@ -56,9 +56,9 @@ popd
 
 ```bash
 # Install stable functorch:
-pip install functorch
+pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' functorch
 # or install from source:
-pip install git+https://github.com/pytorch/functorch
+pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' git+https://github.com/pytorch/functorch
 
 # Run the benchmark for the base
 # This will use the GPU if available.

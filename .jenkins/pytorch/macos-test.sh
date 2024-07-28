@@ -6,14 +6,14 @@ source "$(dirname "${BASH_SOURCE[0]}")/macos-common.sh"
 
 conda install -y six
 if [[ ${BUILD_ENVIRONMENT} = *arm64* ]]; then
-  pip install hypothesis "expecttest==0.1.3" "librosa>=0.6.2" "numba==0.56.0" psutil "scipy==1.9.0"
+  pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' hypothesis "expecttest==0.1.3" "librosa>=0.6.2" "numba==0.56.0" psutil "scipy==1.9.0"
 else
-  pip install hypothesis "expecttest==0.1.3" "librosa>=0.6.2" "numba<=0.49.1" psutil "scipy==1.6.3"
+  pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' hypothesis "expecttest==0.1.3" "librosa>=0.6.2" "numba<=0.49.1" psutil "scipy==1.6.3"
 fi
 
 # TODO move this to docker
 # Pin unittest-xml-reporting to freeze printing test summary logic, related: https://github.com/pytorch/pytorch/issues/69014
-pip install "unittest-xml-reporting<=3.2.0,>=2.0.0" \
+pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' "unittest-xml-reporting<=3.2.0,>=2.0.0" \
   pytest \
   pytest-xdist \
   pytest-shard \

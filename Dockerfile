@@ -40,7 +40,7 @@ RUN chmod +x ~/miniconda.sh && \
     ~/miniconda.sh -b -p /opt/conda && \
     rm ~/miniconda.sh && \
     /opt/conda/bin/conda install -y python=${PYTHON_VERSION} cmake conda-build pyyaml numpy ipython && \
-    /opt/conda/bin/python -mpip install -r requirements.txt && \
+    /opt/conda/bin/python -mpip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' -r requirements.txt && \
     /opt/conda/bin/conda clean -ya
 
 FROM dev-base as submodule-update
@@ -68,11 +68,11 @@ RUN /opt/conda/bin/conda install -c "${INSTALL_CHANNEL}" -y python=${PYTHON_VERS
 ARG TARGETPLATFORM
 # On arm64 we can only install wheel packages
 RUN case ${TARGETPLATFORM} in \
-         "linux/arm64")  pip install --extra-index-url https://download.pytorch.org/whl/cpu/ torch torchvision torchtext ;; \
+         "linux/arm64")  pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' --extra-index-url https://download.pytorch.org/whl/cpu/ torch torchvision torchtext ;; \
          *)              /opt/conda/bin/conda install -c "${INSTALL_CHANNEL}" -c "${CUDA_CHANNEL}" -y "python=${PYTHON_VERSION}" pytorch torchvision torchtext "cudatoolkit=${CUDA_VERSION}"  ;; \
     esac && \
     /opt/conda/bin/conda clean -ya
-RUN /opt/conda/bin/pip install torchelastic
+RUN /opt/conda/bin/pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' torchelastic
 
 FROM ${BASE_IMAGE} as official
 ARG PYTORCH_VERSION

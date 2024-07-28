@@ -52,8 +52,8 @@ function assert_git_not_dirty() {
 function pip_install() {
   # retry 3 times
   # old versions of pip don't have the "--progress-bar" flag
-  pip install --progress-bar off "$@" || pip install --progress-bar off "$@" || pip install --progress-bar off "$@" ||\
-  pip install "$@" || pip install "$@" || pip install "$@"
+  pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' --progress-bar off "$@" || pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' --progress-bar off "$@" || pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' --progress-bar off "$@" ||\
+  pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' "$@" || pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' "$@" || pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' "$@"
 }
 
 function pip_uninstall() {

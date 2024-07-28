@@ -22,7 +22,7 @@ if [[ "$PACKAGE_TYPE" == libtorch ]]; then
 elif [[ "$PACKAGE_TYPE" == conda ]]; then
   conda install -y "$pkg"
 else
-  pip install "$pkg" -v
+  pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' "$pkg" -v
 fi
 
 # Test

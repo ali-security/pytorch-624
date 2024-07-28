@@ -81,10 +81,10 @@ RUN mkdir /tmp/zeromq-build && \
   rm -rf /tmp/zeromq-build
 
 # pip self upgrade
-RUN pip install --upgrade pip
+RUN pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' --upgrade pip
 
 # Python dependencies
-RUN pip install \
+RUN pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' \
   matplotlib \
   numpy \
   protobuf
@@ -99,7 +99,7 @@ RUN apt-get install -q -y \
   libatlas-base-dev \
   vim
 
-RUN pip install \
+RUN pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' \
   flask \
   ipython \
   notebook \
@@ -109,7 +109,7 @@ RUN pip install \
   tornado
 
 # This is intentional. scikit-image has to be after scipy.
-RUN pip install \
+RUN pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' \
   scikit-image
 
 ################################################################################

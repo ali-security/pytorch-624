@@ -86,7 +86,7 @@ https://github.com/pytorch/pytorch#from-source
 To develop PyTorch on your machine, here are some tips:
 
 ### Prerequisites
-* CMake. You can install it via `pip install cmake`
+* CMake. You can install it via `pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' cmake`
 * Python >= 3.7 (3.7.6+ recommended)
 
 ### Instructions
@@ -358,7 +358,7 @@ python test/test_jit.py TestJit.test_Sequential
 
 We don't officially support `pytest`, but it works well with our
 `unittest` tests and offers a number of useful features for local
-developing. Install it via `pip install pytest`.
+developing. Install it via `pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' pytest`.
 
 If you want to just run tests that contain a specific substring, you can
 use the `-k` flag:
@@ -511,7 +511,7 @@ To build the documentation:
 
 ```bash
 cd docs
-pip install -r requirements.txt
+pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' -r requirements.txt
 # `katex` must also be available in your PATH.
 # You can either install katex globally if you have properly configured npm:
 # npm install -g katex
@@ -643,7 +643,7 @@ that has the ability to profile native code and Python code in the same session.
 `py-spy` can be installed via `pip`:
 
 ```bash
-pip install py-spy
+pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' py-spy
 ```
 
 To use `py-spy`, first write a Python test script that exercises the
@@ -750,7 +750,7 @@ options.
 When using `python setup.py develop`, PyTorch will generate
 a `compile_commands.json` file that can be used by many editors
 to provide command completion and error highlighting for PyTorch's
-C++ code. You need to `pip install ninja` to generate accurate
+C++ code. You need to `pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' ninja` to generate accurate
 information for the code in `torch/csrc`. More information at:
 - https://sarcasm.github.io/notes/dev/compilation-database.html
 
@@ -760,7 +760,7 @@ information for the code in `torch/csrc`. More information at:
 
 By default, cmake will use its Makefile generator to generate your build
 system.  You can get faster builds if you install the ninja build system
-with `pip install ninja`.  If PyTorch was already built, you will need
+with `pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' ninja`.  If PyTorch was already built, you will need
 to run `python setup.py clean` once after installing ninja for builds to
 succeed.
 

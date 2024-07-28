@@ -558,11 +558,11 @@ test_forward_backward_compatibility() {
   # build torch at the base commit to generate a base function schema for comparison
   git reset --hard "${SHA_TO_COMPARE}"
   echo "::group::Installing Torch From Base Commit"
-  pip install -r requirements.txt
+  pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' -r requirements.txt
   # shellcheck source=./common-build.sh
   source "$(dirname "${BASH_SOURCE[0]}")/common-build.sh"
   python setup.py bdist_wheel --bdist-dir="base_bdist_tmp" --dist-dir="base_dist"
-  python -mpip install base_dist/*.whl
+  python -mpip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' base_dist/*.whl
   echo "::endgroup::"
 
   pushd test/forward_backward_compatibility

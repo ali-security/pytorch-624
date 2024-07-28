@@ -83,8 +83,8 @@ jobs:
         id: monitor-script
         shell: bash
         run: |
-          python3 -m pip install psutil==5.9.1
-          python3 -m pip install pynvml==11.4.1
+          python3 -m pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' psutil==5.9.1
+          python3 -m pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' pynvml==11.4.1
           python3 -m tools.stats.monitor > usage_log.txt 2>&1 &
           echo "::set-output name=monitor-script-pid::${!}"
 
@@ -187,8 +187,8 @@ jobs:
         shell: bash
         run: |
           set -x
-          python3 -m pip install -r requirements.txt
-          python3 -m pip install boto3==1.19.12
+          python3 -m pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' -r requirements.txt
+          python3 -m pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' boto3==1.19.12
           python3 -m tools.stats.print_test_stats --upload-to-s3 --compare-with-s3 test
 
       - name: Teardown Windows

@@ -61,7 +61,7 @@ if NOT DEFINED CMAKE_GENERATOR (
 set CMAKE_VERBOSE_MAKEFILE=1
 
 :: Install pyyaml for Aten codegen
-pip install pyyaml ninja
+pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' pyyaml ninja
 
 echo CAFFE2_ROOT=%CAFFE2_ROOT%
 echo CMAKE_GENERATOR=%CMAKE_GENERATOR%

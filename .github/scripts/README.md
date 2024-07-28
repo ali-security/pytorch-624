@@ -22,7 +22,7 @@ couple of utility templates used to discern common utilities that can be used am
 
 You will need `jinja2` in order to regenerate the workflow files which can be installed using:
 ```bash
-pip install -r .github/requirements.txt
+pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' -r .github/requirements.txt
 ```
 
 Workflows can be generated / regenerated using the following command:

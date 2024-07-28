@@ -125,8 +125,8 @@ jobs:
           cd "${GITHUB_WORKSPACE}/ios/TestApp/benchmark"
           mkdir -p ../models
           if [ "${USE_COREML_DELEGATE}" == 1 ]; then
-            pip install coremltools==5.0b5 protobuf==3.20.1
-            pip install six==1.16.0
+            pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' coremltools==5.0b5 protobuf==3.20.1
+            pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' six==1.16.0
             python coreml_backend.py
           else
             cd "${GITHUB_WORKSPACE}"

@@ -4,7 +4,7 @@
 source "$(dirname "${BASH_SOURCE[0]}")/common.sh"
 
 if [[ ${BUILD_ENVIRONMENT} == *onnx* ]]; then
-  pip install click mock tabulate networkx==2.0
+  pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' click mock tabulate networkx==2.0
   pip -q install --user "file:///var/lib/jenkins/workspace/third_party/onnx#egg=onnx"
 fi
 
@@ -22,9 +22,9 @@ if [[ $BUILD_ENVIRONMENT == *rocm* ]]; then
     # Need networkx 2.0 because bellmand_ford was moved in 2.1 . Scikit-image by
     # defaults installs the most recent networkx version, so we install this lower
     # version explicitly before scikit-image pulls it in as a dependency
-    pip install networkx==2.0
+    pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' networkx==2.0
     # click - onnx
-    pip install --progress-bar off click protobuf tabulate virtualenv mock typing-extensions
+    pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' --progress-bar off click protobuf tabulate virtualenv mock typing-extensions
 fi
 
 # Find where cpp tests and Caffe2 itself are installed
@@ -103,7 +103,7 @@ fi
 $MAYBE_SUDO pip -q uninstall -y hypothesis
 $MAYBE_SUDO pip -q uninstall -y coverage
 
-# "pip install hypothesis==3.44.6" from official server is unreliable on
+# "pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' hypothesis==3.44.6" from official server is unreliable on
 # CircleCI, so we host a copy on S3 instead
 $MAYBE_SUDO pip -q install attrs==18.1.0 -f https://s3.amazonaws.com/ossci-linux/wheels/attrs-18.1.0-py2.py3-none-any.whl
 $MAYBE_SUDO pip -q install coverage==4.5.1 -f https://s3.amazonaws.com/ossci-linux/wheels/coverage-4.5.1-cp36-cp36m-macosx_10_12_x86_64.whl
@@ -149,7 +149,7 @@ export DNNL_MAX_CPU_ISA=AVX2
 
 # Should still run even in the absence of SHARD_NUMBER
 if [[ "${SHARD_NUMBER:-1}" == "1" ]]; then
-  pip install --user pytest-sugar
+  pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' --user pytest-sugar
   # NB: Warnings are disabled because they make it harder to see what
   # the actual erroring test is
   "$PYTHON" \
@@ -172,8 +172,8 @@ fi
 # ONNX tests #
 ##############
 if [[ "$BUILD_ENVIRONMENT" == *onnx* ]]; then
-  pip install -q --user --no-use-pep517 "git+https://github.com/pytorch/vision.git@$(cat .github/ci_commit_pins/vision.txt)"
-  pip install -q --user ninja flatbuffers==2.0 numpy==1.21.5 onnxruntime==1.12.1 beartype==0.10.4
+  pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' -q --user --no-use-pep517 "git+https://github.com/pytorch/vision.git@$(cat .github/ci_commit_pins/vision.txt)"
+  pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' -q --user ninja flatbuffers==2.0 numpy==1.21.5 onnxruntime==1.12.1 beartype==0.10.4
   # numba requires numpy <= 1.20, onnxruntime requires numpy >= 1.21.
   # We don't actually need it for our tests, but it's imported if it's present, so uninstall.
   pip uninstall -q --yes numba

@@ -126,7 +126,7 @@ Note, you can access the full version of the script [here](https://github.com/py
 First, we need to install one single dependency, `torchvision`
 
 ```
-pip install torchvision
+pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' torchvision
 ```
 
 `torchvision` comes with MNIST dataset w/ images of handwritten digits, which we will be using for training.

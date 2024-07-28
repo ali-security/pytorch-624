@@ -15,7 +15,7 @@ from torch._C import parse_schema
 # In venv_nightly:
 # 2. First ensure that Pytorch is uninstalled, but all prereqs are installed
 # 3. Install torch nightly build with
-#    `pip install --pre torch -f https://download.pytorch.org/whl/nightly/cpu/torch_nightly.html`
+#    `pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' --pre torch -f https://download.pytorch.org/whl/nightly/cpu/torch_nightly.html`
 # 4. Generate original schemas with
 #    `python test/forward_backward_compatibility/dump_all_function_schemas.py --filename nightly_schemas.txt`
 # Now in venv_yours:

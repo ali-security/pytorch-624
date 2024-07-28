@@ -227,7 +227,7 @@ def generate_wheels_matrix(os: str,
 
             desired_cuda = translate_desired_cuda(gpu_arch_type, gpu_arch_version)
             # special 11.7 wheels package without dependencies
-            # dependency downloaded via pip install
+            # dependency downloaded via pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/'
             if arch_version == "11.7" and os == "linux":
                 ret.append(
                     {

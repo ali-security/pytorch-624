@@ -7,12 +7,12 @@ script_path=$(python -c "import os; import sys; print(os.path.realpath(sys.argv[
 top_dir=$(dirname $(dirname $(dirname "$script_path")))
 tp2_dir="$top_dir/third_party"
 
-pip install ninja
+pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' ninja
 
 # Install onnx
-pip install --no-use-pep517 -e "$tp2_dir/onnx"
+pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' --no-use-pep517 -e "$tp2_dir/onnx"
 
 # Install caffe2 and pytorch
-pip install -r "$top_dir/caffe2/requirements.txt"
-pip install -r "$top_dir/requirements.txt"
+pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' -r "$top_dir/caffe2/requirements.txt"
+pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' -r "$top_dir/requirements.txt"
 python setup.py develop

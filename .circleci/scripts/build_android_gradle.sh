@@ -33,7 +33,7 @@ retry () {
 # Run custom build script
 if [[ "${BUILD_ENVIRONMENT}" == *-gradle-custom-build* ]]; then
   # Install torch & torchvision - used to download & dump used ops from test model.
-  retry pip install torch torchvision --progress-bar off
+  retry pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' torch torchvision --progress-bar off
 
   exec "$(dirname "${BASH_SOURCE[0]}")/../../android/build_test_app_custom.sh" armeabi-v7a
 fi

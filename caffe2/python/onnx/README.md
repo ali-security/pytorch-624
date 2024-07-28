@@ -26,7 +26,7 @@ onnx-caffe2 uses [pytest](https://docs.pytest.org) as test driver. In order to r
 
 
 ```
-pip install pytest-cov
+pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' pytest-cov
 ```
 
 After installing pytest, do
@@ -45,7 +45,7 @@ During development it's convenient to install caffe2 in development mode:
 
 ```
 cd /path/to/caffe2
-pip install -e caffe2/
+pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' -e caffe2/
 ```
 
 # License

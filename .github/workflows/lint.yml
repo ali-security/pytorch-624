@@ -21,7 +21,7 @@ jobs:
           fetch-depth: 1
 
       - name: Setup Python
-        uses: actions/setup-python@v2
+        uses: MatteoH2O1999/setup-python@v4
         with:
           python-version: 3.8
           architecture: x64
@@ -34,7 +34,7 @@ jobs:
         with:
           timeout_minutes: 5
           max_attempts: 3
-          command: pip install lintrunner==0.9.2
+          command: pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' lintrunner==0.9.2
 
       - name: Initialize lint dependencies
         run: lintrunner init
@@ -83,7 +83,7 @@ jobs:
           # Remove any artifacts from the previous checkouts
           git clean -fxd
       - name: Setup Python
-        uses: actions/setup-python@v2
+        uses: MatteoH2O1999/setup-python@v4
         with:
           python-version: 3.x
           architecture: x64
@@ -92,7 +92,7 @@ jobs:
             **/requirements.txt
       - name: Install requirements
         id: requirements
-        run: pip install -r requirements.txt --user
+        run: pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' -r requirements.txt --user
       - name: Ensure no non-breaking spaces
         if: always()
         run: |
@@ -147,7 +147,7 @@ jobs:
           submodules: false
           fetch-depth: 1
       - name: Setup Python
-        uses: actions/setup-python@v2
+        uses: MatteoH2O1999/setup-python@v4
         with:
           python-version: 3.x
           architecture: x64
@@ -158,10 +158,10 @@ jobs:
       - name: Install requirements
         id: requirements
         run: |
-          pip install -r requirements.txt --user
+          pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' -r requirements.txt --user
       - name: Install Jinja2
         run: |
-          pip install Jinja2==3.0.1 --user
+          pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' Jinja2==3.0.1 --user
       - name: Regenerate workflows
         id: generate_workflows
         run: .github/scripts/generate_ci_workflows.py
@@ -238,7 +238,7 @@ jobs:
         with:
           submodules: false
       - name: Setup Python
-        uses: actions/setup-python@v2
+        uses: MatteoH2O1999/setup-python@v4
         with:
           python-version: 3.8
           architecture: x64
@@ -253,13 +253,13 @@ jobs:
         # .circleci/docker/common/install_conda.sh
         run: |
           set -eux
-          pip install -r requirements.txt
-          pip install boto3==1.19.12
-          pip install typing-extensions==3.10 --user
-          pip install -r requirements-flake8.txt --user
-          pip install rockset==0.8.10 --user
-          pip install -r requirements.txt --user
-          pip install mypy==0.960 --user
+          pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' -r requirements.txt
+          pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' boto3==1.19.12
+          pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' typing-extensions==3.10 --user
+          pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' -r requirements-flake8.txt --user
+          pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' rockset==0.8.10 --user
+          pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' -r requirements.txt --user
+          pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' mypy==0.960 --user
           make setup_lint
       - name: Test tools
         run: |
@@ -283,7 +283,7 @@ jobs:
           fetch-depth: 1
       - name: Setup Python 3.5
         if: matrix.test_type == 'older_python_version'
-        uses: actions/setup-python@v2
+        uses: MatteoH2O1999/setup-python@v4
         with:
           python-version: 3.5
           architecture: x64
@@ -292,7 +292,7 @@ jobs:
             **/.github/requirements-gha-cache.txt
       - name: Setup Python 3.8
         if: matrix.test_type != 'older_python_version'
-        uses: actions/setup-python@v2
+        uses: MatteoH2O1999/setup-python@v4
         with:
           python-version: 3.8
           architecture: x64
@@ -303,7 +303,7 @@ jobs:
         if: matrix.test_type == 'with_torch'
         run: |
           # Doesn't really matter what torch version, we just need ANY torch installed
-          pip install 'torch==1.*'
+          pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' 'torch==1.*'
       - name: Run collect_env.py
         run: |
           # All we need to see is that it passes

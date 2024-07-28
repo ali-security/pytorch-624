@@ -5,7 +5,7 @@
 #
 # This script requires the jschema_to_python package to be installed.
 # To install it, run:
-#   pip install jschema_to_python
+#   pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' jschema_to_python
 
 set -e -x
 ROOT="${PWD}/../../.."

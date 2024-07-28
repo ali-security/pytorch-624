@@ -2,7 +2,7 @@
   # update_s3_htmls job
   # These jobs create html files for every cpu/cu## folder in s3. The html
   # files just store the names of all the files in that folder (which are
-  # binary files (.whl files)). This is to allow pip installs of the latest
+  # binary files (.whl files)). This is to allow pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/'s of the latest
   # version in a folder without having to know the latest date. Pip has a flag
   # -f that you can pass an html file listing a bunch of packages, and pip will
   # then install the one with the most recent version.
@@ -49,5 +49,5 @@
           retry () {
               $*  || (sleep 1 && $*) || (sleep 2 && $*) || (sleep 4 && $*) || (sleep 8 && $*)
           }
-          retry pip install awscli==1.6
+          retry pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' awscli==1.6
           "/home/circleci/project/builder/cron/update_s3_htmls.sh"

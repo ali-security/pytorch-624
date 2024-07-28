@@ -8,21 +8,21 @@ on:
 
 jobs:
   is-properly-labeled:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
 
       - name: Set up python
-        uses: actions/setup-python@v2
+        uses: MatteoH2O1999/setup-python@v4
         with:
           cache: pip
           cache-dependency-path: |
             **/.github/requirements-gha-cache.txt
 
       - name: Install requests
-        run: pip install requests==2.26
+        run: pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' requests==2.26
 
       - name: Process commit and find merger responsible for labeling
         id: commit

@@ -75,7 +75,7 @@ exporter to print out a human-readable representation of the model::
 You can also verify the output using the `ONNX <https://github.com/onnx/onnx/>`_ library,
 which you can install using ``pip``::
 
-    pip install onnx
+    pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' onnx
 
 Then, you can run::
 
