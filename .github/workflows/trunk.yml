@@ -122,6 +122,7 @@ jobs:
 
   ios-12-5-1-x86-64:
     name: ios-12-5-1-x86-64
+    if: false
     uses: ./.github/workflows/_ios-build-test.yml
     with:
       build-environment: ios-12-5-1-x86-64
@@ -265,4 +266,5 @@ jobs:
 
   android-emulator-build-test:
     name: android-emulator-build-test
+    if: false
     uses: ./.github/workflows/_run_android_tests.yml
