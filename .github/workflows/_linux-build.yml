@@ -54,8 +54,8 @@ on:
 jobs:
   build:
     # Don't run on forked repos
-    # if: github.repository_owner == 'pytorch'
-    runs-on: ubuntu-22.04
+    if: github.repository_owner == 'pytorch'
+    runs-on: [self-hosted, linux.2xlarge]
     timeout-minutes: 240
     outputs:
       docker-image: ${{ steps.calculate-docker-image.outputs.docker-image }}
