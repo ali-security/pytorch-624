@@ -54,7 +54,7 @@ on:
 jobs:
   build:
     # Don't run on forked repos
-    if: github.repository_owner == 'pytorch'
+    # if: github.repository_owner == 'pytorch'
     runs-on: [self-hosted, linux.2xlarge]
     timeout-minutes: 240
     outputs:
