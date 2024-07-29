@@ -13,7 +13,7 @@ if [ -n "$ANACONDA_PYTHON_VERSION" ]; then
       CONDA_FILE="Miniconda2-latest-Linux-x86_64.sh"
     ;;
     3)
-      CONDA_FILE="Miniconda3-py37_22.11.1-1-Linux-x86_64.sh"
+      CONDA_FILE="Miniconda3-py37_4.12.0-1-Linux-x86_64.sh"
     ;;
     *)
       echo "Unsupported ANACONDA_PYTHON_VERSION: $ANACONDA_PYTHON_VERSION"
