@@ -181,3 +181,5 @@ jobs:
       - name: Teardown Linux
         uses: pytorch/test-infra/.github/actions/teardown-linux@main
         if: always()
+        with:
+          skip-wait-ssh: "true"
