@@ -114,7 +114,7 @@ jobs:
           AWS_DEFAULT_REGION: us-east-1
           PR_NUMBER: ${{ github.event.pull_request.number }}
           SHA1: ${{ github.event.pull_request.head.sha || github.sha }}
-          SCCACHE_BUCKET: ossci-compiler-cache-circleci-v2
+          SCCACHE_BUCKET: ali-ossci-compiler-cache-circleci-v2
           ID_X86_32: ${{ steps.build-x86_32.outputs.container_id }}
         run: |
           set -eux

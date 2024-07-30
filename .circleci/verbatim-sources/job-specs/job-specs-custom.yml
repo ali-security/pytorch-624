@@ -43,7 +43,7 @@
             # Install sccache
             sudo curl --retry 3 https://s3.amazonaws.com/ossci-macos/sccache_v2.15 --output /usr/local/bin/sccache
             sudo chmod +x /usr/local/bin/sccache
-            export SCCACHE_BUCKET=ossci-compiler-cache-circleci-v2
+            export SCCACHE_BUCKET=ali-ossci-compiler-cache-circleci-v2
 
             # This IAM user allows write access to S3 bucket for sccache
             set +x
@@ -79,7 +79,7 @@
             # Install sccache
             sudo curl --retry 3 https://s3.amazonaws.com/ossci-macos/sccache_v2.15 --output /usr/local/bin/sccache
             sudo chmod +x /usr/local/bin/sccache
-            export SCCACHE_BUCKET=ossci-compiler-cache-circleci-v2
+            export SCCACHE_BUCKET=ali-ossci-compiler-cache-circleci-v2
 
             # This IAM user allows write access to S3 bucket for sccache
             set +x
@@ -127,7 +127,7 @@
           command: |
             sudo curl --retry 3 https://s3.amazonaws.com/ossci-macos/sccache_v2.15 --output /usr/local/bin/sccache
             sudo chmod +x /usr/local/bin/sccache
-            echo "export SCCACHE_BUCKET=ossci-compiler-cache-circleci-v2" >> "${BASH_ENV}"
+            echo "export SCCACHE_BUCKET=ali-ossci-compiler-cache-circleci-v2" >> "${BASH_ENV}"
             echo "export SCCACHE_S3_KEY_PREFIX=${GITHUB_WORKFLOW}" >> "${BASH_ENV}"
 
             set +x

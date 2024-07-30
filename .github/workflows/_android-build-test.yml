@@ -65,7 +65,7 @@ jobs:
         env:
           BUILD_ENVIRONMENT: ${{ inputs.build-environment }}
           TORCH_CUDA_ARCH_LIST: 5.2
-          SCCACHE_BUCKET: ossci-compiler-cache-circleci-v2
+          SCCACHE_BUCKET: ali-ossci-compiler-cache-circleci-v2
           DOCKER_IMAGE: ${{ steps.calculate-docker-image.outputs.docker-image }}
         run: |
           set -e

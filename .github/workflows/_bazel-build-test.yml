@@ -78,7 +78,7 @@ jobs:
           # TODO duplicated
           AWS_DEFAULT_REGION: us-east-1
           SHA1: ${{ github.event.pull_request.head.sha || github.sha }}
-          SCCACHE_BUCKET: ossci-compiler-cache-circleci-v2
+          SCCACHE_BUCKET: ali-ossci-compiler-cache-circleci-v2
           TORCH_CUDA_ARCH_LIST: 5.2
           DOCKER_IMAGE: ${{ steps.calculate-docker-image.outputs.docker-image }}
           OUR_GITHUB_JOB_ID: ${{ steps.get-job-id.outputs.job-id }}
@@ -116,7 +116,7 @@ jobs:
           PYTORCH_RETRY_TEST_CASES: 1
           PYTORCH_OVERRIDE_FLAKY_SIGNAL: 1
           PR_BODY: ${{ github.event.pull_request.body }}
-          SCCACHE_BUCKET: ossci-compiler-cache-circleci-v2
+          SCCACHE_BUCKET: ali-ossci-compiler-cache-circleci-v2
           DOCKER_IMAGE: ${{ steps.calculate-docker-image.outputs.docker-image }}
         run: |
           # detached container should get cleaned up by teardown_ec2_linux
