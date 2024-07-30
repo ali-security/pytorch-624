@@ -28,6 +28,7 @@ if [[ "$BUILD_ENVIRONMENT" != *win-* ]]; then
     fi
 
     # Report sccache stats for easier debugging
+    sccache --zero-stats || cat ${SCCACHE_ERROR_LOG}
     sccache --zero-stats
     function sccache_epilogue() {
         echo "::group::Sccache Compilation Log"
