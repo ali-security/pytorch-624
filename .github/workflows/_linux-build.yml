@@ -168,15 +168,15 @@ jobs:
           if-no-files-found: error
           path: artifacts.zip
 
-      - name: Upload sccache stats
-        if: steps.build.outcome != 'skipped'
-        uses: seemethere/upload-artifact-s3@v5
-        with:
-          s3-prefix: |
-            ${{ github.repository }}/${{ github.run_id }}/${{ github.run_attempt }}/artifact
-          retention-days: 365
-          if-no-files-found: warn
-          path: sccache-stats-*.json
+      # - name: Upload sccache stats
+      #   if: steps.build.outcome != 'skipped'
+      #   uses: seemethere/upload-artifact-s3@v5
+      #   with:
+      #     s3-prefix: |
+      #       ${{ github.repository }}/${{ github.run_id }}/${{ github.run_attempt }}/artifact
+      #     retention-days: 365
+      #     if-no-files-found: warn
+      #     path: sccache-stats-*.json
 
       # - name: Teardown Linux
       #   uses: pytorch/test-infra/.github/actions/teardown-linux@main
