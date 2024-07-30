@@ -53,7 +53,7 @@ RUN  bash ./install_lcov.sh && rm install_lcov.sh
 
 # Install cuda and cudnn
 ARG CUDA_VERSION
-RUN wget -q https://raw.githubusercontent.com/pytorch/builder/main/common/install_cuda.sh -O install_cuda.sh
+RUN wget -q https://raw.githubusercontent.com/pytorch/builder/2946b23743b6360c72d378700500b3fbc1408108/common/install_cuda.sh -O install_cuda.sh
 RUN bash ./install_cuda.sh ${CUDA_VERSION} && rm install_cuda.sh
 ENV DESIRED_CUDA ${CUDA_VERSION}
 ENV PATH /usr/local/nvidia/bin:/usr/local/cuda/bin:$PATH
