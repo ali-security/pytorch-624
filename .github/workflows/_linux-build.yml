@@ -76,8 +76,6 @@ jobs:
           github-secret: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Calculate docker image
-        # TEMPORARY HACK: It takes 30 minutes and the dockers were already built
-        if: false 
         id: calculate-docker-image
         uses: ./.github/actions/calculate-docker-image
         with:
