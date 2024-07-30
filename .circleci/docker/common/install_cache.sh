@@ -14,6 +14,7 @@ install_ubuntu() {
   echo "Building sccache"
   cargo build --release
   cp target/release/sccache /opt/cache/bin
+  cp /opt/cache/bin/sccache /opt/cache/bin/sccache2
   echo "Cleaning up"
   cd ..
   rm -rf sccache
