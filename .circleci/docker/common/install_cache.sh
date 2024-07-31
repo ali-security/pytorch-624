@@ -3,7 +3,7 @@
 set -ex
 
 install_ubuntu() {
-  # echo "Preparing to build sccache from source"
+  echo "Preparing to build sccache from source"
   # apt-get update
   # # libssl-dev will not work as it is upgraded to libssl3 in Ubuntu-22.04.
   # # Instead use lib and headers from OpenSSL1.1 installed in `install_openssl.sh``
