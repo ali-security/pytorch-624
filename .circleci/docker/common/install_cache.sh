@@ -3,23 +3,23 @@
 set -ex
 
 install_ubuntu() {
-  echo "Preparing to build sccache from source"
-  apt-get update
-  # libssl-dev will not work as it is upgraded to libssl3 in Ubuntu-22.04.
-  # Instead use lib and headers from OpenSSL1.1 installed in `install_openssl.sh``
-  apt-get install -y cargo
-  echo "Checking out sccache repo"
-  git clone https://github.com/pytorch/sccache
-  cd sccache
-  echo "Building sccache"
-  cargo build --release
-  cp target/release/sccache /opt/cache/bin
-  cp /opt/cache/bin/sccache /opt/cache/bin/sccache2
-  echo "Cleaning up"
-  cd ..
-  rm -rf sccache
-  apt-get remove -y cargo rustc
-  apt-get autoclean && apt-get clean
+  # echo "Preparing to build sccache from source"
+  # apt-get update
+  # # libssl-dev will not work as it is upgraded to libssl3 in Ubuntu-22.04.
+  # # Instead use lib and headers from OpenSSL1.1 installed in `install_openssl.sh``
+  # apt-get install -y cargo
+  # echo "Checking out sccache repo"
+  # git clone https://github.com/pytorch/sccache
+  # cd sccache
+  # echo "Building sccache"
+  # cargo build --release
+  # cp target/release/sccache /opt/cache/bin
+  # cp /opt/cache/bin/sccache /opt/cache/bin/sccache2
+  # echo "Cleaning up"
+  # cd ..
+  # rm -rf sccache
+  # apt-get remove -y cargo rustc
+  # apt-get autoclean && apt-get clean
 }
 
 install_binary() {
