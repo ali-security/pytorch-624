@@ -136,8 +136,6 @@ jobs:
             -e PR_NUMBER \
             -e SHA1 \
             -e BRANCH \
-            -e SCCACHE_BUCKET \
-            -e SCCACHE_S3_KEY_PREFIX \
             -e XLA_CUDA \
             -e XLA_CLANG_CACHE_S3_BUCKET_NAME \
             -e SKIP_SCCACHE_INITIALIZATION=1 \

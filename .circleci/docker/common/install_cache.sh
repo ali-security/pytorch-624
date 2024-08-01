@@ -22,30 +22,30 @@ install_ubuntu() {
   # apt-get autoclean && apt-get clean
 }
 
-install_binary() {
-  echo "Downloading sccache binary from S3 repo"
-  curl --retry 3 https://s3.amazonaws.com/ossci-linux/sccache -o /opt/cache/bin/sccache
-}
+# install_binary() {
+#   echo "Downloading sccache binary from S3 repo"
+#   curl --retry 3 https://s3.amazonaws.com/ossci-linux/sccache -o /opt/cache/bin/sccache
+# }
 
-mkdir -p /opt/cache/bin
-mkdir -p /opt/cache/lib
-sed -e 's|PATH="\(.*\)"|PATH="/opt/cache/bin:\1"|g' -i /etc/environment
-export PATH="/opt/cache/bin:$PATH"
+# mkdir -p /opt/cache/bin
+# mkdir -p /opt/cache/lib
+# sed -e 's|PATH="\(.*\)"|PATH="/opt/cache/bin:\1"|g' -i /etc/environment
+# export PATH="/opt/cache/bin:$PATH"
 
-# Setup compiler cache
-if [ -n "$ROCM_VERSION" ]; then
-  curl --retry 3 http://repo.radeon.com/misc/.sccache_amd/sccache -o /opt/cache/bin/sccache
-else
-  ID=$(grep -oP '(?<=^ID=).+' /etc/os-release | tr -d '"')
-  case "$ID" in
-    ubuntu)
-      install_ubuntu
-      ;;
-    *)
-      install_binary
-      ;;
-  esac
-fi
+# # Setup compiler cache
+# if [ -n "$ROCM_VERSION" ]; then
+#   curl --retry 3 http://repo.radeon.com/misc/.sccache_amd/sccache -o /opt/cache/bin/sccache
+# else
+#   ID=$(grep -oP '(?<=^ID=).+' /etc/os-release | tr -d '"')
+#   case "$ID" in
+#     ubuntu)
+#       install_ubuntu
+#       ;;
+#     *)
+#       install_binary
+#       ;;
+#   esac
+# fi
 # chmod a+x /opt/cache/bin/sccache
 
 # function write_sccache_stub() {

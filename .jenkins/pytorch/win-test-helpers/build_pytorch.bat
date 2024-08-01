@@ -115,7 +115,7 @@ if "%USE_CUDA%"=="1" (
   cat %TMP_DIR%/bin/nvcc.bat
   set CUDA_NVCC_EXECUTABLE=%TMP_DIR%/bin/nvcc.bat
   for /F "usebackq delims=" %%n in (`cygpath -m "%CUDA_PATH%\bin\nvcc.exe"`) do set CMAKE_CUDA_COMPILER=%%n
-  set CMAKE_CUDA_COMPILER_LAUNCHER=%TMP_DIR%/bin/randomtemp.exe;%TMP_DIR%\bin\sccache.exe
+  @REM set CMAKE_CUDA_COMPILER_LAUNCHER=%TMP_DIR%/bin/randomtemp.exe;%TMP_DIR%\bin\sccache.exe
 )
 
 @echo off
