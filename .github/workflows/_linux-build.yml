@@ -163,10 +163,12 @@ jobs:
         uses: seemethere/upload-artifact-s3@v5
         if: inputs.build-generates-artifacts && steps.build.outcome != 'skipped'
         with:
-          name: ali-torch
+          name: ${{ inputs.build-environment }}
+          s3-bucket: ali-torch
+          s3-prefix: ${{ inputs.build-environment }}
           retention-days: 14
           if-no-files-found: error
-          path: ${{ inputs.build-environment }}/artifacts.zip
+          path: artifacts.zip
 
       # - name: Upload sccache stats
       #   if: steps.build.outcome != 'skipped'
