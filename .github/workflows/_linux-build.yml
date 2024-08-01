@@ -184,8 +184,8 @@ jobs:
       #     if-no-files-found: warn
       #     path: sccache-stats-*.json
 
-      # - name: Teardown Linux
-      #   uses: pytorch/test-infra/.github/actions/teardown-linux@main
-      #   if: always()
-      #   with:
-      #     skip-wait-ssh: "true"
+      - name: Teardown Linux
+        uses: pytorch/test-infra/.github/actions/teardown-linux@main
+        if: always()
+        with:
+          skip-wait-ssh: "true"
