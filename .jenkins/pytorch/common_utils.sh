@@ -147,12 +147,12 @@ function test_functorch() {
 
 function print_sccache_stats() {
   echo 'PyTorch Build Statistics'
-  sccache --show-stats
+  # sccache --show-stats
 
-  if [[ -n "${OUR_GITHUB_JOB_ID}" ]]; then
-    sccache --show-stats --stats-format json | jq .stats \
-      > "sccache-stats-${BUILD_ENVIRONMENT}-${OUR_GITHUB_JOB_ID}.json"
-  else
-    echo "env var OUR_GITHUB_JOB_ID not set, will not write sccache stats to json"
-  fi
+  # if [[ -n "${OUR_GITHUB_JOB_ID}" ]]; then
+  #   sccache --show-stats --stats-format json | jq .stats \
+  #     > "sccache-stats-${BUILD_ENVIRONMENT}-${OUR_GITHUB_JOB_ID}.json"
+  # else
+  #   echo "env var OUR_GITHUB_JOB_ID not set, will not write sccache stats to json"
+  # fi
 }
