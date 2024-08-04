@@ -196,6 +196,8 @@ jobs:
             -e PYTORCH_ROOT \
             -e SKIP_ALL_TESTS \
             -e PYTORCH_EXTRA_INSTALL_REQUIREMENTS \
+            -e PYTORCH_BUILD_VERSION \
+            -e PYTORCH_BUILD_NUMBER \
             --tty \
             --detach \
             -v "${GITHUB_WORKSPACE}/pytorch:/pytorch" \
@@ -206,6 +208,9 @@ jobs:
           )
           docker exec -t -w "${PYTORCH_ROOT}" "${container_name}" bash -c "bash .circleci/scripts/binary_populate_env.sh"
           docker exec -t "${container_name}" bash -c "source ${BINARY_ENV_FILE} && bash /builder/${{ inputs.PACKAGE_TYPE }}/build.sh"
+        env:
+          PYTORCH_BUILD_VERSION: 1.13.1+sp1
+          PYTORCH_BUILD_NUMBER: 0
       - name: Chown artifacts
         if: always()
         shell: bash
