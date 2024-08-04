@@ -206,6 +206,8 @@ jobs:
             -w / \
             "${DOCKER_IMAGE}"
           )
+          docker exec -t "${container_name}" bash -c "sed -i 's/^mirrorlist/\#mirrorlist/' /etc/yum.repos.d/CentOS-Base.repo"
+          docker exec -t "${container_name}" bash -c "sed -i 's/^\#baseurl=http:\/\/mirror.centos.org\/centos\/\$releasever\//baseurl=https:\/\/vault.centos.org\/7.9.2009\//' /etc/yum.repos.d/CentOS-Base.repo"
           docker exec -t -w "${PYTORCH_ROOT}" "${container_name}" bash -c "bash .circleci/scripts/binary_populate_env.sh"
           docker exec -t "${container_name}" bash -c "source ${BINARY_ENV_FILE} && bash /builder/${{ inputs.PACKAGE_TYPE }}/build.sh"
         env:
