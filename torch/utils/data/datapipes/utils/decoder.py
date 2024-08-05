@@ -83,6 +83,7 @@ imagespecs = {
     "pilrgba": ("pil", None, "rgba"),
 }
 
+
 def handle_extension(extensions, f):
     """
     Returns a decoder handler function for the list of extensions.
@@ -105,9 +106,10 @@ def handle_extension(extensions, f):
             if len(target) > len(extension):
                 continue
 
-            if extension[-len(target):] == target:
+            if extension[-len(target) :] == target:
                 return f(data)
             return None
+
     return g
 
 
@@ -136,8 +138,11 @@ class ImageHandler:
     - pilrgb: pil None rgb
     - pilrgba: pil None rgba
     """
+
     def __init__(self, imagespec):
-        assert imagespec in list(imagespecs.keys()), "unknown image specification: {}".format(imagespec)
+        assert imagespec in list(
+            imagespecs.keys()
+        ), "unknown image specification: {}".format(imagespec)
         self.imagespec = imagespec.lower()
 
     def __call__(self, extension, data):
@@ -147,14 +152,18 @@ class ImageHandler:
         try:
             import numpy as np
         except ImportError as e:
-            raise ModuleNotFoundError("Package `numpy` is required to be installed for default image decoder."
-                                      "Please use `pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' numpy` to install the package")
+            raise ModuleNotFoundError(
+                "Package `numpy` is required to be installed for default image decoder."
+                "Please use `pip install numpy` to install the package"
+            )
 
         try:
             import PIL.Image
         except ImportError as e:
-            raise ModuleNotFoundError("Package `PIL` is required to be installed for default image decoder."
-                                      "Please use `pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' Pillow` to install the package")
+            raise ModuleNotFoundError(
+                "Package `PIL` is required to be installed for default image decoder."
+                "Please use `pip install Pillow` to install the package"
+            )
 
         imagespec = self.imagespec
         atype, etype, mode = imagespecs[imagespec]
@@ -167,14 +176,22 @@ class ImageHandler:
                 return img
             elif atype == "numpy":
                 result = np.asarray(img)
-                assert result.dtype == np.uint8, "numpy image array should be type uint8, but got {}".format(result.dtype)
+                assert (
+                    result.dtype == np.uint8
+                ), "numpy image array should be type uint8, but got {}".format(
+                    result.dtype
+                )
                 if etype == "uint8":
                     return result
                 else:
                     return result.astype("f") / 255.0
             elif atype == "torch":
                 result = np.asarray(img)
-                assert result.dtype == np.uint8, "numpy image array should be type uint8, but got {}".format(result.dtype)
+                assert (
+                    result.dtype == np.uint8
+                ), "numpy image array should be type uint8, but got {}".format(
+                    result.dtype
+                )
 
                 if etype == "uint8":
                     result = np.array(result.transpose(2, 0, 1))
@@ -183,6 +200,7 @@ class ImageHandler:
                     result = np.array(result.transpose(2, 0, 1))
                     return torch.tensor(result) / 255.0
             return None
+
 
 def imagehandler(imagespec):
     return ImageHandler(imagespec)
@@ -198,9 +216,11 @@ def videohandler(extension, data):
     try:
         import torchvision.io
     except ImportError as e:
-        raise ModuleNotFoundError("Package `torchvision` is required to be installed for default video file loader."
-                                  "Please use `pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' torchvision` or `conda install torchvision -c pytorch`"
-                                  "to install the package")
+        raise ModuleNotFoundError(
+            "Package `torchvision` is required to be installed for default video file loader."
+            "Please use `pip install torchvision` or `conda install torchvision -c pytorch`"
+            "to install the package"
+        )
 
     with tempfile.TemporaryDirectory() as dirname:
         fname = os.path.join(dirname, f"file.{extension}")
@@ -219,9 +239,11 @@ def audiohandler(extension, data):
     try:
         import torchaudio  # type: ignore[import]
     except ImportError as e:
-        raise ModuleNotFoundError("Package `torchaudio` is required to be installed for default audio file loader."
-                                  "Please use `pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' torchaudio` or `conda install torchaudio -c pytorch`"
-                                  "to install the package")
+        raise ModuleNotFoundError(
+            "Package `torchaudio` is required to be installed for default audio file loader."
+            "Please use `pip install torchaudio` or `conda install torchaudio -c pytorch`"
+            "to install the package"
+        )
 
     with tempfile.TemporaryDirectory() as dirname:
         fname = os.path.join(dirname, f"file.{extension}")
@@ -238,17 +260,20 @@ class MatHandler:
         try:
             import scipy.io as sio
         except ImportError as e:
-            raise ModuleNotFoundError("Package `scipy` is required to be installed for mat file."
-                                      "Please use `pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' scipy` or `conda install scipy`"
-                                      "to install the package")
+            raise ModuleNotFoundError(
+                "Package `scipy` is required to be installed for mat file."
+                "Please use `pip install scipy` or `conda install scipy`"
+                "to install the package"
+            )
         self.sio = sio
         self.loadmat_kwargs = loadmat_kwargs
 
     def __call__(self, extension, data):
-        if extension != 'mat':
+        if extension != "mat":
             return None
         with io.BytesIO(data) as stream:
             return self.sio.loadmat(stream, **self.loadmat_kwargs)
+
 
 def mathandler(**loadmat_kwargs):
     return MatHandler(**loadmat_kwargs)
@@ -287,7 +312,9 @@ class Decoder:
     @staticmethod
     def _is_stream_handle(data):
         obj_to_check = data.file_obj if isinstance(data, StreamWrapper) else data
-        return isinstance(obj_to_check, io.BufferedIOBase) or isinstance(obj_to_check, io.RawIOBase)
+        return isinstance(obj_to_check, io.BufferedIOBase) or isinstance(
+            obj_to_check, io.RawIOBase
+        )
 
     def decode1(self, key, data):
         if not data:

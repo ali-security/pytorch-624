@@ -2,6 +2,7 @@
 
 The module returns a no-op decorator when the beartype library is not installed.
 """
+
 import functools
 import traceback
 import typing
@@ -49,7 +50,7 @@ def _create_beartype_decorator(
             warnings.warn(
                 "TORCH_ONNX_EXPERIMENTAL_RUNTIME_TYPE_CHECK is set to 'ERRORS', "
                 "but the beartype library is not installed. "
-                "Install beartype with `pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' beartype` to enable runtime type checking."
+                "Install beartype with `pip install beartype` to enable runtime type checking."
             )
         return _no_op_decorator
 
