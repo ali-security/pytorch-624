@@ -1,5 +1,4 @@
 # Python dependencies required for development
-pip==18.1
 astunparse
 expecttest
 future
