@@ -90,7 +90,7 @@ RUN rm install_ninja.sh
 
 # Install ccache/sccache (do this last, so we get priority in PATH)
 COPY ./common/install_cache.sh install_cache.sh
-ENV PATH /opt/cache/bin:$PATH
+# ENV PATH /opt/cache/bin:$PATH
 RUN bash ./install_cache.sh && rm install_cache.sh
 
 # Include BUILD_ENVIRONMENT environment variable in image
