@@ -92,7 +92,7 @@ pytorch_windows_params: &pytorch_windows_params
       default: ""
   environment:
     BUILD_ENVIRONMENT: <<parameters.build_environment>>
-    SCCACHE_BUCKET: "ossci-compiler-cache"
+    SCCACHE_BUCKET: "ali-ossci-compiler-cache"
     CUDA_VERSION: <<parameters.cuda_version>>
     PYTHON_VERSION: <<parameters.python_version>>
     VS_VERSION: <<parameters.vs_version>>

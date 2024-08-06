@@ -82,7 +82,7 @@ pytest test/test_eager_transforms.py -v
 
 AOTAutograd has some additional optional requirements. You can install them via:
 ```bash
-pip install networkx
+pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' networkx
 ```
 
 To run functorch tests, please install our test dependencies (`expecttest`, `pyyaml`).
@@ -106,7 +106,7 @@ Prerequisite: [Install PyTorch](https://pytorch.org/get-started/locally/)
 
 
 ```bash
-pip install functorch
+pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' functorch
 ```
 
 Finally, run a quick sanity check in python:

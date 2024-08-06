@@ -343,7 +343,7 @@ SIGNALS_TO_NAMES_DICT = {
 
 CPP_EXTENSIONS_ERROR = """
 Ninja (https://ninja-build.org) is required for some of the C++ extensions
-tests, but it could not be found. Install ninja with `pip install ninja`
+tests, but it could not be found. Install ninja with `pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' ninja`
 or `conda install ninja`. Alternatively, disable said tests with
 `run_test.py --exclude test_cpp_extensions_aot_ninja test_cpp_extensions_jit`.
 """

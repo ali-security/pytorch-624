@@ -226,7 +226,7 @@ else
     else
       python setup.py bdist_wheel
     fi
-    python -mpip install "$(echo dist/*.whl)[opt-einsum]"
+    python -mpip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' "$(echo dist/*.whl)[opt-einsum]"
 
     # TODO: I'm not sure why, but somehow we lose verbose commands
     set -x

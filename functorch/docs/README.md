@@ -5,7 +5,7 @@ functorch docs build
 
 Install requirements:
 ```
-pip install -r requirements.txt
+pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' -r requirements.txt
 ```
 
 One may also need to install [pandoc](https://pandoc.org/installing.html). On Linux we can use: `sudo apt-get install pandoc`. Or using `conda` we can use: `conda install -c conda-forge pandoc`.

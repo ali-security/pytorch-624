@@ -13,7 +13,7 @@ if [ -n "$ANACONDA_PYTHON_VERSION" ]; then
       CONDA_FILE="Miniconda2-latest-Linux-x86_64.sh"
     ;;
     3)
-      CONDA_FILE="Miniconda3-latest-Linux-x86_64.sh"
+      CONDA_FILE="Miniconda3-py37_4.12.0-Linux-x86_64.sh"
     ;;
     *)
       echo "Unsupported ANACONDA_PYTHON_VERSION: $ANACONDA_PYTHON_VERSION"
@@ -71,7 +71,7 @@ if [ -n "$ANACONDA_PYTHON_VERSION" ]; then
   }
 
   pip_install() {
-    as_jenkins pip install --progress-bar off $*
+    as_jenkins pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' --progress-bar off $*
   }
 
   # Install PyTorch conda deps, as per https://github.com/pytorch/pytorch README

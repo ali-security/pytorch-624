@@ -223,7 +223,7 @@ setup_wheel_python() {
 
 # Install with pip a bit more robustly than the default
 pip_install() {
-  retry pip install --progress-bar off "$@"
+  retry pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' --progress-bar off "$@"
 }
 
 # Install torch with pip, respecting PYTORCH_VERSION, and record the installed

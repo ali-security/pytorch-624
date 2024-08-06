@@ -7,7 +7,7 @@ This benchmark suite provides a systemic way to measure the performance of `__to
 Install `py-spy` by doing:
 
 ```bash
-pip install py-spy
+pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' py-spy
 ```
 
 Note that more extensive documentation on using `py-spy` is available in `CONTRIBUTING.md`.

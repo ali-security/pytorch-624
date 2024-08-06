@@ -48,7 +48,7 @@ jobs:
     steps:
       # [see note: pytorch repo ref]
       - name: Checkout PyTorch
-        uses: pytorch/pytorch/.github/actions/checkout-pytorch@master
+        uses: pytorch/pytorch/.github/actions/checkout-pytorch@main
         with:
           no-sudo: true
 
@@ -93,7 +93,7 @@ jobs:
           MAX_JOBS: 8
           CUDA_VERSION: ${{ inputs.cuda-version }}
           PYTHON_VERSION: "3.8"
-          SCCACHE_BUCKET: "ossci-compiler-cache"
+          SCCACHE_BUCKET: "ali-ossci-compiler-cache"
           SCCACHE_S3_KEY_PREFIX: ${{ github.workflow }}
           VC_PRODUCT: "BuildTools"
           VC_VERSION: ""

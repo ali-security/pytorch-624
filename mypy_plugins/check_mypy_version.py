@@ -24,7 +24,7 @@ in the PyTorch repo. Please switch to mypy version {correct_version}.
 
 For example, if you installed mypy via pip, run this:
 
-    pip install mypy=={correct_version}
+    pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' mypy=={correct_version}
 
 Or if you installed mypy via conda, run this:
 

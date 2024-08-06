@@ -69,8 +69,8 @@ conda install pytorch torchvision torchaudio cpuonly -c pytorch-nightly
 Install dim. You will be asked for github credentials to access the fairinternal organization.
 
 ```sh
-pip install ninja  # Makes the build go faster
-pip install --user "git+https://github.com/facebookresearch/torchdim"
+pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' ninja  # Makes the build go faster
+pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' --user "git+https://github.com/facebookresearch/torchdim"
 ```
 
 Creating and Binding Dims

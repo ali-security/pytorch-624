@@ -9,7 +9,7 @@ you'll be able to ``import functorch`` in your program.
 If you're upgrading from an older version of functorch (functorch 0.1.x or 0.2.x),
 then you may need to uninstall functorch first via ``pip uninstall functorch``.
 
-We've maintained backwards compatibility for ``pip install functorch``: this
+We've maintained backwards compatibility for ``pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' functorch``: this
 command works for PyTorch 1.13 and will continue to work for the foreseeable future
 until we do a proper deprecation. This is helpful if you're maintaining a library
 that supports multiple versions of PyTorch and/or functorch.
@@ -34,4 +34,4 @@ Please first install PyTorch and then run the following command:
 
 ::
 
-  pip install functorch
+  pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' functorch

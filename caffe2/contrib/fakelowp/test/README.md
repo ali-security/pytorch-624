@@ -31,8 +31,8 @@ sudo pip3.7 install virtualenv
 python3.7 -m venv venv3
 source venv3/bin/activate
 cd pytorch
-pip install -r requirements.txt
-pip install pytest hypothesis protobuf
+pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' -r requirements.txt
+pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' pytest hypothesis protobuf
 ```
 You probably need to install gflags-dev too with
 ```

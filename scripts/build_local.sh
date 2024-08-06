@@ -36,13 +36,13 @@ else
   # Make sure that pyyaml is installed for the codegen of building Aten to work
   if [[ -n "$(python -c 'import yaml' 2>&1)" ]]; then
     echo "Installing pyyaml with pip at $(which pip)"
-    pip install --user pyyaml
+    pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' --user pyyaml
   fi
 
   # Make sure that typing is installed for the codegen of building Aten to work
   if [[ -n "$(python -c 'import typing' 2>&1)" ]]; then
     echo "Installing typing with pip at $(which pip)"
-    pip install --user typing
+    pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' --user typing
   fi
 
   # Build protobuf compiler from third_party if configured to do so

@@ -40,7 +40,7 @@ and visualization by TensorBoard. For example:
 This can then be visualized with TensorBoard, which should be installable
 and runnable with::
 
-    pip install tensorboard
+    pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' tensorboard
     tensorboard --logdir=runs
 
 

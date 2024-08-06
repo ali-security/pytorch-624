@@ -9,7 +9,7 @@ cd .jenkins/pytorch/perf_test
 
 echo "Running CPU perf test for PyTorch..."
 
-pip install -q awscli
+pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' -q awscli
 
 # Set multipart_threshold to be sufficiently high, so that `aws s3 cp` is not a multipart read
 # More info at https://github.com/aws/aws-cli/issues/2321

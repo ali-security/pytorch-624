@@ -20,7 +20,7 @@ Note that you might need to uninstall existing Eigen and pybind11 packages due t
 
 ###### Ubuntu 14.04 LTS
     sudo apt-get install libprotobuf-dev protobuf-compiler libatlas-base-dev libgoogle-glog-dev libgtest-dev liblmdb-dev libleveldb-dev libsnappy-dev python-dev python-pip libiomp-dev libopencv-dev libpthread-stubs0-dev cmake
-    sudo pip install numpy
+    sudo pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' numpy
     wget http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1404/x86_64/cuda-repo-ubuntu1404_8.0.44-1_amd64.deb
     sudo dpkg -i cuda-repo-ubuntu1404_8.0.44-1_amd64.deb
     sudo apt-get update
@@ -39,7 +39,7 @@ Note that you might need to uninstall existing Eigen and pybind11 packages due t
 
 ###### Ubuntu 16.04 LTS
     sudo apt-get install libprotobuf-dev protobuf-compiler libatlas-base-dev libgoogle-glog-dev libgtest-dev liblmdb-dev libleveldb-dev libsnappy-dev python-dev python-pip libiomp-dev libopencv-dev libpthread-stubs0-dev cmake
-    sudo pip install numpy
+    sudo pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' numpy
     wget http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
     sudo dpkg -i cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
     sudo apt-get update
@@ -60,7 +60,7 @@ Note that you might need to uninstall existing Eigen and pybind11 packages due t
 
 To use Caffe2 in Python, you need two libraries, future and six.
 
-    pip install future six
+    pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' future six
 
 To run the tutorials, download additional source from GitHub.
 
@@ -70,4 +70,4 @@ To run the tutorials, download additional source from GitHub.
 You'll also need jupyter (formerly ipython) notebooks and matplotlib, which can be installed on MacOS X with
 
     brew install matplotlib --with-python3
-    pip install jupyter
+    pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' jupyter

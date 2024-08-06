@@ -77,7 +77,7 @@ s3_upload() {
 
 # Install dependencies (should be a no-op if previously installed)
 conda install -yq anaconda-client
-pip install -q awscli
+pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' -q awscli
 
 case "${PACKAGE_TYPE}" in
   conda)

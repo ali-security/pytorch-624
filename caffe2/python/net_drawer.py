@@ -19,7 +19,7 @@ try:
 except ImportError:
     logger.info(
         'Cannot import pydot, which is required for drawing a network. This '
-        'can usually be installed in python with "pip install pydot". Also, '
+        'can usually be installed in python with "pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' pydot". Also, '
         'pydot requires graphviz to convert dot files to pdf: in ubuntu, this '
         'can usually be installed with "sudo apt-get install graphviz".'
     )

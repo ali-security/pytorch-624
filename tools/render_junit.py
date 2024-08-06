@@ -14,13 +14,13 @@ try:
     )
 except ImportError:
     raise ImportError(
-        "junitparser not found, please install with 'pip install junitparser'"
+        "junitparser not found, please install with 'pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' junitparser'"
     )
 
 try:
     import rich
 except ImportError:
-    print("rich not found, for color output use 'pip install rich'")
+    print("rich not found, for color output use 'pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' rich'")
 
 
 def parse_junit_reports(path_to_reports: str) -> List[TestCase]:  # type: ignore[no-any-unimported]

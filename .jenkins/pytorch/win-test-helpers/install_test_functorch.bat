@@ -7,7 +7,7 @@ if not errorlevel 0 (
 )
 
 echo "Installing test dependencies"
-pip install networkx
+pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' networkx
 if errorlevel 1 exit /b
 
 echo "Test functorch"

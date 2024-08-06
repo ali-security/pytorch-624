@@ -44,7 +44,7 @@ build tasks. It can be used by typing only a few lines of code.
 .. code-block:: bat
 
     REM Let's install ninja first.
-    pip install ninja
+    pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' ninja
 
     REM Set it as the cmake generator
     set CMAKE_GENERATOR=Ninja
@@ -150,7 +150,7 @@ uses MKL instead of OpenBLAS. You may type in the following command.
 
 .. code-block:: bat
 
-    pip install numpy mkl intel-openmp mkl_fft
+    pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' numpy mkl intel-openmp mkl_fft
 
 Another possible cause may be you are using GPU version without NVIDIA
 graphics cards. Please replace your GPU package with the CPU one.

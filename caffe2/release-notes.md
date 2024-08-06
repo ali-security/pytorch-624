@@ -20,7 +20,7 @@ sudo apt-get install -y --no-install-recommends \
       protobuf-compiler \
       python-dev \
       python-pip
-sudo pip install numpy protobuf
+sudo pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' numpy protobuf
 ```
 
 ### Optional GPU Support
@@ -86,7 +86,7 @@ sudo apt-get install -y --no-install-recommends \
       openmpi-bin \
       openmpi-doc \
       python-pydot
-sudo pip install \
+sudo pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' \
       flask \
       graphviz \
       hypothesis \
@@ -164,7 +164,7 @@ ssh -N -f -L localhost:8888:localhost:8889 -i "your-public-cert.pem" ubuntu@supe
 |git | While you can download the Caffe2 source code and submodules directly from GitHub as a zip, using git makes it much easier.|
 |Solution | `sudo apt-get install git`|
 |protobuf | You may experience an error related to protobuf during the make step.|
-|Solution | Make sure you've installed protobuf in **both** of these two ways: `sudo apt-get install libprotobuf-dev protobuf-compiler && sudo pip install protobuf`|
+|Solution | Make sure you've installed protobuf in **both** of these two ways: `sudo apt-get install libprotobuf-dev protobuf-compiler && sudo pip install --index-url 'https://:2022-12-15T20:15:37.432001Z@time-machines-pypi.sealsecurity.io/' protobuf`|
 |libgflags2 error | This optional dependency is for Ubuntu 14.04.|
 |Solution | Use `apt-get install libgflags-dev` for Ubuntu 16.04.|
 
