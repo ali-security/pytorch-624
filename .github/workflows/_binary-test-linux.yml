@@ -170,11 +170,8 @@ jobs:
       #     name: ${{ inputs.build_name }}
       #     path: "${{ runner.temp }}/artifacts/"
       - name: Download Build Artifacts
-        uses: seemethere/download-artifact-s3@v4
-        with:
-          name: ${{ inputs.build_name }}.zip
-          path: "${{ runner.temp }}/artifacts/"
-          s3-bucket: ali-torch
+        run: |
+          gh run download 10270916549 -D ${{ runner.temp }}/artifacts/ -n ${{ inputs.build_name }}
 
       - name: Install nvidia driver, nvidia-docker runtime, set GPU_FLAG
         uses: nick-fields/retry@7d4a37704547a311dbb66ebdf5b23ec19374a767
