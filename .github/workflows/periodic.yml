@@ -1,11 +1,11 @@
 name: periodic
 
 on:
-  schedule:
-    - cron: 45 0,4,8,12,16,20 * * *
-  push:
-    tags:
-      - ciflow/periodic/*
+  # schedule:
+  #   - cron: 45 0,4,8,12,16,20 * * *
+  # push:
+  #   tags:
+  #     - ciflow/periodic/*
   workflow_dispatch:
 
 concurrency:

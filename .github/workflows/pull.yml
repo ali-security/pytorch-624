@@ -1,13 +1,13 @@
 name: pull
 
 on:
-  pull_request:
-  push:
-    branches:
-      - master
-      - main
-      - release/*
-      - landchecks/*
+  # pull_request:
+  # push:
+  #   branches:
+  #     - master
+  #     - main
+  #     - release/*
+  #     - landchecks/*
   workflow_dispatch:
 
 concurrency:

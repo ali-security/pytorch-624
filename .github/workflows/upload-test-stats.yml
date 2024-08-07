@@ -1,10 +1,11 @@
 name: Upload test stats
 
 on:
-  workflow_run:
-    workflows: [pull, trunk, periodic]
-    types:
-      - completed
+  workflow_dispatch:
+  # workflow_run:
+  #   workflows: [pull, trunk, periodic]
+  #   types:
+  #     - completed
 
 jobs:
   # the conclusion field in the github context is sometimes null
