@@ -171,7 +171,7 @@ jobs:
       #     path: "${{ runner.temp }}/artifacts/"
       - name: Download Build Artifacts
         run: |
-          gh run download 10270916549 -D ${{ runner.temp }}/artifacts/ -n ${{ inputs.build_name }}
+          gh run download 10270916549 -D ${{ runner.temp }}/artifacts/ -n ${{ inputs.build_name }} -R ${{ github.repository }}
 
       - name: Install nvidia driver, nvidia-docker runtime, set GPU_FLAG
         uses: nick-fields/retry@7d4a37704547a311dbb66ebdf5b23ec19374a767
