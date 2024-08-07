@@ -177,8 +177,8 @@ jobs:
         uses: nick-fields/retry@7d4a37704547a311dbb66ebdf5b23ec19374a767
         if: ${{ inputs.GPU_ARCH_TYPE == 'cuda' }}
         with:
-          timeout_minutes: 30
-          max_attempts: 3
+          timeout_minutes: 120
+          max_attempts: 1
           command: |
             set -ex
             pushd pytorch
