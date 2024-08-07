@@ -11,6 +11,7 @@ on:
       - nightly
       - main
       - seal-1.13.1
+      - seal-1.13.1-test
     # tags:
     #   # NOTE: Binary build pipelines should only get triggered on release candidate builds
     #   # Release candidate tags look like: v1.11.0-rc1
