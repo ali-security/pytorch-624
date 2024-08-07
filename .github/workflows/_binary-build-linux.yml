@@ -223,6 +223,8 @@ jobs:
       - name: Teardown Linux
         if: always()
         uses: pytorch/test-infra/.github/actions/teardown-linux@main
+        with:
+          skip-wait-ssh: "true"
 
       - name: Chown workspace
         if: always()

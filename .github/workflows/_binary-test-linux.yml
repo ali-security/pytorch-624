@@ -84,7 +84,7 @@ jobs:
       DESIRED_DEVTOOLSET: ${{ inputs.DESIRED_DEVTOOLSET }}
       DESIRED_PYTHON: ${{ inputs.DESIRED_PYTHON }}
       # Needed for conda builds
-      ALPINE_IMAGE: "308535385114.dkr.ecr.us-east-1.amazonaws.com/tool/alpine"
+      ALPINE_IMAGE: "alpine"
       ANACONDA_USER: pytorch
       AWS_DEFAULT_REGION: us-east-1
       BINARY_ENV_FILE: /tmp/env
@@ -193,6 +193,8 @@ jobs:
       - name: Teardown Linux
         if: always()
         uses: pytorch/test-infra/.github/actions/teardown-linux@main
+        with:
+          skip-wait-ssh: "true"
 
       - name: Chown workspace
         if: always()
