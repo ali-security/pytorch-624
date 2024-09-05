@@ -84,7 +84,7 @@ jobs:
       DESIRED_DEVTOOLSET: ${{ inputs.DESIRED_DEVTOOLSET }}
       DESIRED_PYTHON: ${{ inputs.DESIRED_PYTHON }}
       # Needed for conda builds
-      ALPINE_IMAGE: "308535385114.dkr.ecr.us-east-1.amazonaws.com/tool/alpine"
+      ALPINE_IMAGE: "alpine"
       ANACONDA_USER: pytorch
       AWS_DEFAULT_REGION: us-east-1
       BINARY_ENV_FILE: /tmp/env
@@ -124,7 +124,7 @@ jobs:
 
         # Setup the environment
       - name: Checkout PyTorch
-        uses: pytorch/pytorch/.github/actions/checkout-pytorch@master
+        uses: pytorch/pytorch/.github/actions/checkout-pytorch@main
       - name: Setup Linux
         uses: ./.github/actions/setup-linux
       - name: Chown workspace
@@ -153,7 +153,7 @@ jobs:
       - name: Checkout pytorch/builder to builder dir
         uses: zhouzhuojie/checkout@05b13c9a0d21f08f6d5e64a1d5042246d13619d9
         with:
-          ref: main
+          ref: ef93e8909512a972e9c513495efdf5df6aed9883
           submodules: recursive
           repository: pytorch/builder
           path: builder
@@ -193,6 +193,8 @@ jobs:
       - name: Teardown Linux
         if: always()
         uses: pytorch/test-infra/.github/actions/teardown-linux@main
+        with:
+          skip-wait-ssh: "true"
 
       - name: Chown workspace
         if: always()

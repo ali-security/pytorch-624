@@ -9,17 +9,19 @@ on:
     # NOTE: Meta Employees can trigger new nightlies using: https://fburl.com/trigger_pytorch_nightly_build
     branches:
       - nightly
-    tags:
-      # NOTE: Binary build pipelines should only get triggered on release candidate builds
-      # Release candidate tags look like: v1.11.0-rc1
-      - v[0-9]+.[0-9]+.[0-9]+-rc[0-9]+
-      - 'ciflow/binaries/*'
-      - 'ciflow/binaries_wheel/*'
+      - main
+      - seal-1.13.1
+    # tags:
+    #   # NOTE: Binary build pipelines should only get triggered on release candidate builds
+    #   # Release candidate tags look like: v1.11.0-rc1
+    #   - v[0-9]+.[0-9]+.[0-9]+-rc[0-9]+
+    #   - 'ciflow/binaries/*'
+    #   - 'ciflow/binaries_wheel/*'
   workflow_dispatch:
 
 env:
   # Needed for conda builds
-  ALPINE_IMAGE: "308535385114.dkr.ecr.us-east-1.amazonaws.com/tool/alpine"
+  ALPINE_IMAGE: "alpine"
   ANACONDA_USER: pytorch
   AWS_DEFAULT_REGION: us-east-1
   BINARY_ENV_FILE: /tmp/env
@@ -154,7 +156,7 @@ jobs:
       conda-pytorchbot-token: ${{ secrets.CONDA_PYTORCHBOT_TOKEN }}
     uses: ./.github/workflows/_binary-upload.yml
   manywheel-py3_7-cuda11_7-with-pypi-cudnn-build:
-    if: ${{ github.repository_owner == 'pytorch' }}
+    # if: ${{ github.repository_owner == 'pytorch' }}
     uses: ./.github/workflows/_binary-build-linux.yml
     with:
       PYTORCH_ROOT: /pytorch
@@ -165,7 +167,7 @@ jobs:
       DESIRED_CUDA: cu117
       GPU_ARCH_VERSION: 11.7
       GPU_ARCH_TYPE: cuda
-      DOCKER_IMAGE: pytorch/manylinux-builder:cuda11.7
+      DOCKER_IMAGE: pytorch/manylinux-builder:cuda11.7-ef93e8909512a972e9c513495efdf5df6aed9883
       DESIRED_PYTHON: "3.7"
       build_name: manywheel-py3_7-cuda11_7-with-pypi-cudnn
       build_environment: linux-binary-manywheel
@@ -174,7 +176,7 @@ jobs:
       github-token: ${{ secrets.GITHUB_TOKEN }}
 
   manywheel-py3_7-cuda11_7-with-pypi-cudnn-test:  # Testing
-    if: ${{ github.repository_owner == 'pytorch' }}
+    # if: ${{ github.repository_owner == 'pytorch' }}
     needs: manywheel-py3_7-cuda11_7-with-pypi-cudnn-build
     uses: ./.github/workflows/_binary-test-linux.yml
     with:
@@ -186,7 +188,7 @@ jobs:
       DESIRED_CUDA: cu117
       GPU_ARCH_VERSION: 11.7
       GPU_ARCH_TYPE: cuda
-      DOCKER_IMAGE: pytorch/manylinux-builder:cuda11.7
+      DOCKER_IMAGE: pytorch/manylinux-builder:cuda11.7-ef93e8909512a972e9c513495efdf5df6aed9883
       DESIRED_PYTHON: "3.7"
       build_name: manywheel-py3_7-cuda11_7-with-pypi-cudnn
       build_environment: linux-binary-manywheel
@@ -670,7 +672,7 @@ jobs:
       conda-pytorchbot-token: ${{ secrets.CONDA_PYTORCHBOT_TOKEN }}
     uses: ./.github/workflows/_binary-upload.yml
   manywheel-py3_8-cuda11_7-with-pypi-cudnn-build:
-    if: ${{ github.repository_owner == 'pytorch' }}
+    # if: ${{ github.repository_owner == 'pytorch' }}
     uses: ./.github/workflows/_binary-build-linux.yml
     with:
       PYTORCH_ROOT: /pytorch
@@ -681,7 +683,7 @@ jobs:
       DESIRED_CUDA: cu117
       GPU_ARCH_VERSION: 11.7
       GPU_ARCH_TYPE: cuda
-      DOCKER_IMAGE: pytorch/manylinux-builder:cuda11.7
+      DOCKER_IMAGE: pytorch/manylinux-builder:cuda11.7-ef93e8909512a972e9c513495efdf5df6aed9883
       DESIRED_PYTHON: "3.8"
       build_name: manywheel-py3_8-cuda11_7-with-pypi-cudnn
       build_environment: linux-binary-manywheel
@@ -690,7 +692,7 @@ jobs:
       github-token: ${{ secrets.GITHUB_TOKEN }}
 
   manywheel-py3_8-cuda11_7-with-pypi-cudnn-test:  # Testing
-    if: ${{ github.repository_owner == 'pytorch' }}
+    # if: ${{ github.repository_owner == 'pytorch' }}
     needs: manywheel-py3_8-cuda11_7-with-pypi-cudnn-build
     uses: ./.github/workflows/_binary-test-linux.yml
     with:
@@ -702,7 +704,7 @@ jobs:
       DESIRED_CUDA: cu117
       GPU_ARCH_VERSION: 11.7
       GPU_ARCH_TYPE: cuda
-      DOCKER_IMAGE: pytorch/manylinux-builder:cuda11.7
+      DOCKER_IMAGE: pytorch/manylinux-builder:cuda11.7-ef93e8909512a972e9c513495efdf5df6aed9883
       DESIRED_PYTHON: "3.8"
       build_name: manywheel-py3_8-cuda11_7-with-pypi-cudnn
       build_environment: linux-binary-manywheel
@@ -1186,7 +1188,7 @@ jobs:
       conda-pytorchbot-token: ${{ secrets.CONDA_PYTORCHBOT_TOKEN }}
     uses: ./.github/workflows/_binary-upload.yml
   manywheel-py3_9-cuda11_7-with-pypi-cudnn-build:
-    if: ${{ github.repository_owner == 'pytorch' }}
+    # if: ${{ github.repository_owner == 'pytorch' }}
     uses: ./.github/workflows/_binary-build-linux.yml
     with:
       PYTORCH_ROOT: /pytorch
@@ -1197,7 +1199,7 @@ jobs:
       DESIRED_CUDA: cu117
       GPU_ARCH_VERSION: 11.7
       GPU_ARCH_TYPE: cuda
-      DOCKER_IMAGE: pytorch/manylinux-builder:cuda11.7
+      DOCKER_IMAGE: pytorch/manylinux-builder:cuda11.7-ef93e8909512a972e9c513495efdf5df6aed9883
       DESIRED_PYTHON: "3.9"
       build_name: manywheel-py3_9-cuda11_7-with-pypi-cudnn
       build_environment: linux-binary-manywheel
@@ -1206,7 +1208,7 @@ jobs:
       github-token: ${{ secrets.GITHUB_TOKEN }}
 
   manywheel-py3_9-cuda11_7-with-pypi-cudnn-test:  # Testing
-    if: ${{ github.repository_owner == 'pytorch' }}
+    # if: ${{ github.repository_owner == 'pytorch' }}
     needs: manywheel-py3_9-cuda11_7-with-pypi-cudnn-build
     uses: ./.github/workflows/_binary-test-linux.yml
     with:
@@ -1218,7 +1220,7 @@ jobs:
       DESIRED_CUDA: cu117
       GPU_ARCH_VERSION: 11.7
       GPU_ARCH_TYPE: cuda
-      DOCKER_IMAGE: pytorch/manylinux-builder:cuda11.7
+      DOCKER_IMAGE: pytorch/manylinux-builder:cuda11.7-ef93e8909512a972e9c513495efdf5df6aed9883
       DESIRED_PYTHON: "3.9"
       build_name: manywheel-py3_9-cuda11_7-with-pypi-cudnn
       build_environment: linux-binary-manywheel
@@ -1702,7 +1704,7 @@ jobs:
       conda-pytorchbot-token: ${{ secrets.CONDA_PYTORCHBOT_TOKEN }}
     uses: ./.github/workflows/_binary-upload.yml
   manywheel-py3_10-cuda11_7-with-pypi-cudnn-build:
-    if: ${{ github.repository_owner == 'pytorch' }}
+    # if: ${{ github.repository_owner == 'pytorch' }}
     uses: ./.github/workflows/_binary-build-linux.yml
     with:
       PYTORCH_ROOT: /pytorch
@@ -1713,7 +1715,7 @@ jobs:
       DESIRED_CUDA: cu117
       GPU_ARCH_VERSION: 11.7
       GPU_ARCH_TYPE: cuda
-      DOCKER_IMAGE: pytorch/manylinux-builder:cuda11.7
+      DOCKER_IMAGE: pytorch/manylinux-builder:cuda11.7-ef93e8909512a972e9c513495efdf5df6aed9883
       DESIRED_PYTHON: "3.10"
       build_name: manywheel-py3_10-cuda11_7-with-pypi-cudnn
       build_environment: linux-binary-manywheel
@@ -1722,7 +1724,7 @@ jobs:
       github-token: ${{ secrets.GITHUB_TOKEN }}
 
   manywheel-py3_10-cuda11_7-with-pypi-cudnn-test:  # Testing
-    if: ${{ github.repository_owner == 'pytorch' }}
+    # if: ${{ github.repository_owner == 'pytorch' }}
     needs: manywheel-py3_10-cuda11_7-with-pypi-cudnn-build
     uses: ./.github/workflows/_binary-test-linux.yml
     with:
@@ -1734,7 +1736,7 @@ jobs:
       DESIRED_CUDA: cu117
       GPU_ARCH_VERSION: 11.7
       GPU_ARCH_TYPE: cuda
-      DOCKER_IMAGE: pytorch/manylinux-builder:cuda11.7
+      DOCKER_IMAGE: pytorch/manylinux-builder:cuda11.7-ef93e8909512a972e9c513495efdf5df6aed9883
       DESIRED_PYTHON: "3.10"
       build_name: manywheel-py3_10-cuda11_7-with-pypi-cudnn
       build_environment: linux-binary-manywheel
@@ -2218,7 +2220,7 @@ jobs:
       conda-pytorchbot-token: ${{ secrets.CONDA_PYTORCHBOT_TOKEN }}
     uses: ./.github/workflows/_binary-upload.yml
   manywheel-py3_11-cuda11_7-with-pypi-cudnn-build:
-    if: ${{ github.repository_owner == 'pytorch' }}
+    # if: ${{ github.repository_owner == 'pytorch' }}
     uses: ./.github/workflows/_binary-build-linux.yml
     with:
       PYTORCH_ROOT: /pytorch
@@ -2229,7 +2231,7 @@ jobs:
       DESIRED_CUDA: cu117
       GPU_ARCH_VERSION: 11.7
       GPU_ARCH_TYPE: cuda
-      DOCKER_IMAGE: pytorch/manylinux-builder:cuda11.7
+      DOCKER_IMAGE: pytorch/manylinux-builder:cuda11.7-ef93e8909512a972e9c513495efdf5df6aed9883
       DESIRED_PYTHON: "3.11"
       build_name: manywheel-py3_11-cuda11_7-with-pypi-cudnn
       build_environment: linux-binary-manywheel
@@ -2238,7 +2240,7 @@ jobs:
       github-token: ${{ secrets.GITHUB_TOKEN }}
 
   manywheel-py3_11-cuda11_7-with-pypi-cudnn-test:  # Testing
-    if: ${{ github.repository_owner == 'pytorch' }}
+    # if: ${{ github.repository_owner == 'pytorch' }}
     needs: manywheel-py3_11-cuda11_7-with-pypi-cudnn-build
     uses: ./.github/workflows/_binary-test-linux.yml
     with:
@@ -2250,7 +2252,7 @@ jobs:
       DESIRED_CUDA: cu117
       GPU_ARCH_VERSION: 11.7
       GPU_ARCH_TYPE: cuda
-      DOCKER_IMAGE: pytorch/manylinux-builder:cuda11.7
+      DOCKER_IMAGE: pytorch/manylinux-builder:cuda11.7-ef93e8909512a972e9c513495efdf5df6aed9883
       DESIRED_PYTHON: "3.11"
       build_name: manywheel-py3_11-cuda11_7-with-pypi-cudnn
       build_environment: linux-binary-manywheel

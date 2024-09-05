@@ -1,10 +1,11 @@
 name: pr-labels
 
 on:
-  push:
-    branches:
-      - master
-      - main
+  workflow_dispatch:
+  # push:
+  #   branches:
+  #     - master
+  #     - main
 
 jobs:
   is-properly-labeled:

@@ -86,7 +86,7 @@ jobs:
       DESIRED_PYTHON: ${{ inputs.DESIRED_PYTHON }}
       PYTORCH_EXTRA_INSTALL_REQUIREMENTS: ${{ inputs.PYTORCH_EXTRA_INSTALL_REQUIREMENTS }}
       # Needed for conda builds
-      ALPINE_IMAGE: "308535385114.dkr.ecr.us-east-1.amazonaws.com/tool/alpine"
+      ALPINE_IMAGE: "alpine"
       ANACONDA_USER: pytorch
       AWS_DEFAULT_REGION: us-east-1
       BINARY_ENV_FILE: /tmp/env
@@ -127,7 +127,7 @@ jobs:
         shell: bash
         run: env
       - name: Checkout PyTorch
-        uses: pytorch/pytorch/.github/actions/checkout-pytorch@master
+        uses: pytorch/pytorch/.github/actions/checkout-pytorch@main
       - name: Setup Linux
         uses: ./.github/actions/setup-linux
       - name: Chown workspace
@@ -205,7 +205,7 @@ jobs:
             "${DOCKER_IMAGE}"
           )
           docker exec -t -w "${PYTORCH_ROOT}" "${container_name}" bash -c "bash .circleci/scripts/binary_populate_env.sh"
-          docker exec -t "${container_name}" bash -c "source ${BINARY_ENV_FILE} && bash /builder/${{ inputs.PACKAGE_TYPE }}/build.sh"
+          docker exec -t "${container_name}" bash -c "source ${BINARY_ENV_FILE} && sed -i 's/^mirrorlist/\#mirrorlist/' /etc/yum.repos.d/* && sed -i 's/^\#baseurl=http:\/\/mirror.centos.org\/centos\/\$releasever\//baseurl=https:\/\/vault.centos.org\/7.9.2009\//' /etc/yum.repos.d/* && yum-config-manager --disable centos-sclo-rh centos-sclo-sclo && bash /builder/${{ inputs.PACKAGE_TYPE }}/build.sh"
       - name: Chown artifacts
         if: always()
         shell: bash
@@ -223,6 +223,8 @@ jobs:
       - name: Teardown Linux
         if: always()
         uses: pytorch/test-infra/.github/actions/teardown-linux@main
+        with:
+          skip-wait-ssh: "true"
 
       - name: Chown workspace
         if: always()
